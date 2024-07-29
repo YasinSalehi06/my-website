@@ -4,13 +4,7 @@ const app = express();
 const http = require('http');
 const server = http.createServer(app);
 const { Server } = require("socket.io");
-const io = new Server(server, {
-  cors: {
-    origin: "https://yasinsalehi.com", // or specify your domain e.g., "https://your-domain.com"
-    methods: ["GET", "POST"]
-  },
-  transports: ['websocket']
-});
+const io = new Server(server);
 
 app.get('/odd-one-out.html', (req, res) => {
   res.sendFile(path.join(path.dirname(__dirname) + '/odd-one-out.html'));
