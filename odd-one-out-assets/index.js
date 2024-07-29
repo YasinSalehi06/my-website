@@ -6,7 +6,7 @@ const server = http.createServer(app);
 const { Server } = require("socket.io");
 const io = new Server(server);
 
-app.get('/', (req, res) => {
+app.get('/odd-one-out.html', (req, res) => {
   res.sendFile(path.join(path.dirname(__dirname) + '/odd-one-out.html'));
 });
 
