@@ -10,6 +10,14 @@ app.get('/odd-one-out.html', (req, res) => {
   res.sendFile(path.join(path.dirname(__dirname) + '/odd-one-out.html'));
 });
 
+// Serve static files from the 'odd-one-out' folder
+app.use('/odd-one-out', express.static(__dirname));
+
+// Serve the HTML file from the 'chatapp' path
+app.get('/odd-one-out', (req, res) => {
+  res.sendFile(path.dirname(__dirname) + '/odd-one-out.html');
+});
+
 io.on('connection', (socket) => {
   console.log('a user connected');
   socket.on('disconnect', () => {
