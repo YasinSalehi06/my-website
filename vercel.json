@@ -1,0 +1,12 @@
+{
+    "version": 2,
+    "builds": [
+      { "src": "index.js", "use": "@vercel/node" }
+    ],
+    "routes": [
+      { "src": "/static/(.*)", "dest": "/odd-one-out/$1" },
+      { "src": "/odd-one-out.html", "dest": "/odd-one-out.html" },
+      { "src": "/(.*)", "dest": "/index.js" }
+    ]
+  }
+  
