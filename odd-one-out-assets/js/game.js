@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const socket = io();
+    // Wait until the DOM is fully loaded
+    const socket = io();  // `io` should be available if the script is loaded correctly
 
     const startGameButton = document.getElementById('start-game');
     const wordDisplay = document.getElementById('word-display');
