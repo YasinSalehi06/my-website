@@ -6,22 +6,11 @@ const app = express();
 const server = http.createServer(app);
 const io = new Server(server);
 
-app.use(express.static('public'));
+app.use(express.static('public')); // Serve your static files from the 'public' directory
 
 io.on('connection', (socket) => {
     console.log('a user connected');
-
-    socket.on('startGame', () => {
-        // Logic for starting a game, assigning words, etc.
-    });
-
-    socket.on('vote', (index) => {
-        // Logic for handling votes
-    });
-
-    socket.on('disconnect', () => {
-        console.log('user disconnected');
-    });
+    // Handle events
 });
 
 server.listen(3000, () => {
