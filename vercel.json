@@ -1,12 +1,11 @@
 {
-    "version": 2,
-    "builds": [
-      { "src": "odd-one-out/index.js", "use": "@vercel/node" }
-    ],
-    "routes": [
-      { "src": "/odd-one-out.html", "dest": "/odd-one-out.html" },
-      { "src": "/static/(.*)", "dest": "/odd-one-out/$1" },
-      { "src": "/(.*)", "dest": "/odd-one-out/index.js" }
-    ]
-  }
-  
+  "version": 2,
+  "builds": [
+    { "src": "odd-one-out/index.js", "use": "@vercel/node" }
+  ],
+  "routes": [
+    { "src": "/odd-one-out.html", "dest": "/odd-one-out.html" },
+    { "src": "/static/(.*)", "dest": "/odd-one-out/$1" },
+    { "src": "/(.*)", "dest": "/odd-one-out/index.js" }
+  ]
+}
