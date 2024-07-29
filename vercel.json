@@ -5,7 +5,8 @@
     ],
     "routes": [
       { "src": "/odd-one-out.html", "dest": "/odd-one-out.html" },
-      { "src": "/(.*)", "dest": "/index.html" }
+      { "src": "/static/(.*)", "dest": "/odd-one-out/$1" },
+      { "src": "/(.*)", "dest": "/odd-one-out/index.js" }
     ]
   }
   
