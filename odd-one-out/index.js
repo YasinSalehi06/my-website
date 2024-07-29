@@ -1,19 +1,21 @@
 const express = require('express');
-const http = require('http');
-const { Server } = require("socket.io");
 const path = require('path');
+const http = require('http');
+const { Server } = require('socket.io');
 
 const app = express();
 const server = http.createServer(app);
 const io = new Server(server);
 
-// Serve static files from the 'chatapp' directory
-app.use('/odd-one-out', express.static(path.dirname(__dirname)));
+// Serve static files from the 'odd-one-out' directory
+app.use('/static', express.static(__dirname));
 
-app.get('/odd-one-out/', (req, res) => {
-  res.sendFile(path.join(path.dirname(path.dirname(__dirname)), 'odd-one-out.html'));
+// Serve the HTML file at the root path
+app.get('/odd-one-out.html', (req, res) => {
+  res.sendFile(path.join(path.dirname(__dirname), 'odd-one-out.html'));
 });
 
+// Socket.IO connection handling
 io.on('connection', (socket) => {
   io.emit('chat message', 'A new user has joined the chat');
   
