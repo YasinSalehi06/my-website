@@ -18,9 +18,9 @@
   <form id="form" action="">
     <input id="input" autocomplete="off" /><button>Send</button>
   </form>
-  <script src="/socket.io/socket.io.js"></script>
+  <script src="/chatapp/socket.io/socket.io.js"></script>
   <script>
-    var socket = io('/chatapp');
+    var socket = io('/chatapp', { path: '/chatapp/socket.io' });
 
     var messages = document.getElementById('messages');
     var form = document.getElementById('form');

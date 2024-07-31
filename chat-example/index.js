@@ -3,7 +3,9 @@ const app = express();
 const http = require('http');
 const server = http.createServer(app);
 const { Server } = require('socket.io');
-const io = new Server(server);
+const io = new Server(server, {
+  path: '/chatapp/socket.io'
+});
 
 const path = '/chatapp';
 
@@ -13,13 +15,13 @@ app.get(path, (req, res) => {
   res.sendFile(__dirname + '/index.html');
 });
 
-io.of(path).on('connection', (socket) => {
+io.on('connection', (socket) => {
   console.log('a user connected');
   socket.on('disconnect', () => {
     console.log('user disconnected');
   });
   socket.on('chat message', (msg) => {
-    io.of(path).emit('chat message', msg);
+    io.emit('chat message', msg);
   });
 });
 
