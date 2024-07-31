@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Odd One Out</title>
+    <link rel="stylesheet" href="odd-one-out-assets/css/odd-one-out-styles.css">
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="odd-one-out-assets/js/odd-one-out.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Odd One Out</h1>
+        <button id="playWithFriends">Play with Friends</button>
+        <div id="gameArea" style="display: none;">
+            <h2>Game Room</h2>
+            <p id="roomId"></p>
+            <div id="question"></div>
+            <div id="answers"></div>
+            <div id="voteArea" style="display: none;">
+                <h3>Vote for the traitor</h3>
+                <div id="votes"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
