@@ -1,4 +1,5 @@
 const express = require('express');
+const path = require('path');
 const app = express();
 const http = require('http');
 const server = http.createServer(app);
@@ -7,12 +8,12 @@ const io = new Server(server, {
   path: '/chatapp/socket.io'
 });
 
-const path = '/chatapp';
+// Serve static files from the 'public' directory
+app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(express.static(__dirname));
-
-app.get(path, (req, res) => {
-  res.sendFile(__dirname + '/index.html');
+// Route for the chat application
+app.get('/chatapp', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'chatapp', 'index.html'));
 });
 
 io.on('connection', (socket) => {
