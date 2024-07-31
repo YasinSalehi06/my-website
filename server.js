@@ -14,6 +14,11 @@ let rooms = {};
 
 app.use(express.static('my-website'));
 
+// Route to handle requests for 'odd-one-out.html'
+app.get('/odd-one-out', (req, res) => {
+    res.sendFile(__dirname + '/my-website/odd-one-out.html');
+});
+
 io.on('connection', (socket) => {
     socket.on('createRoom', () => {
         const roomId = uuidv4();
