@@ -1,6 +1,7 @@
 // server.js
 const express = require('express');
 const http = require('http');
+const path = require('path')
 const socketIo = require('socket.io');
 const { v4: uuidv4 } = require('uuid');
 
@@ -16,7 +17,7 @@ app.use(express.static('my-website'));
 
 // Route to handle requests for 'odd-one-out.html'
 app.get('/odd-one-out', (req, res) => {
-    res.sendFile(__dirname + '/my-website/odd-one-out.html');
+    res.sendFile(path.join(__dirname + 'odd-one-out.html'));
 });
 
 io.on('connection', (socket) => {
